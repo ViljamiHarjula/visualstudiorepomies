@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using Konsultitoikea;
 using Konsulttiryhmä;
 
 
@@ -15,6 +18,12 @@ namespace Konsulttitoikea
 
         static void Main(string[] args)
         {
+            if (args.Length == 1)
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo(args[0]);
+
+            if (args.Length == 0)
+                Thread.CurrentThread.CurrentUICulture = new CultureInfo("fi-FI");
+
             string[] Konsultit =
            {
             "Nina Puhakka", "Riikka Valjakka",
@@ -51,67 +60,74 @@ namespace Konsulttitoikea
                 KonsulttiLista.Add(ko);
             }
 
-            var o = from å in KonsulttiLista
-                    where å.Sukunimi.Contains("nen")
-                    select å;
+            //var o = from å in KonsulttiLista
+            //        where å.Sukunimi.Contains("nen")
+            //        select å;
 
-            foreach (var å in o)
-                {
-                Console.WriteLine(å.Etunimi + " " + å.Sukunimi);
-            }
+            //foreach (var å in o)
+            //    {
+            //    Console.WriteLine(å.Etunimi + " " + å.Sukunimi);
+            //}
 
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
-            var p = from i in KonsulttiLista
-                    orderby i.Sukunimi ascending
-                    select i;
+            //var p = from i in KonsulttiLista
+            //        orderby i.Sukunimi ascending
+            //        select i;
 
-            foreach (var i in p)
-            {
-                Console.WriteLine(i.Sukunimi + " " + i.Etunimi);
-            }
+            //foreach (var i in p)
+            //{
+            //    Console.WriteLine(i.Sukunimi + " " + i.Etunimi);
+            //}
 
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
-            var y = from z in KonsulttiLista
-                    orderby z.Etunimi descending
-                    select z;
+            //var y = from z in KonsulttiLista
+            //        orderby z.Etunimi descending
+            //        select z;
 
-            foreach (var z in y)
-            {
-                Console.WriteLine(z.Etunimi + " " + z.Sukunimi);
-            }
+            //foreach (var z in y)
+            //{
+            //    Console.WriteLine(z.Etunimi + " " + z.Sukunimi);
+            //}
 
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
-            var yp = from zp in KonsulttiLista
-                     orderby zp.Etunimi.Length + zp.Sukunimi.Length descending
-                     select zp;
+            //var yp = from zp in KonsulttiLista
+            //         orderby zp.Etunimi.Length + zp.Sukunimi.Length descending
+            //         select zp;
 
            
-            Console.WriteLine(yp.First());
+            //Console.WriteLine(yp.First());
 
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
-            var tp = from er in KonsulttiLista
-                     orderby er.Sukunimi.Count(f => f == 'a' || f == 'e' || f == 'i' || f == 'y' || f == 'u' || f == 'o' || f == 'å' || f == 'ä' || f == 'ö') ascending
-                     select er;
+            //var tp = from er in KonsulttiLista
+            //         orderby er.Sukunimi.Count(f => f == 'a' || f == 'e' || f == 'i' || f == 'y' || f == 'u' || f == 'o' || f == 'å' || f == 'ä' || f == 'ö') ascending
+            //         select er;
 
-            Console.WriteLine(tp.First());
+            //Console.WriteLine(tp.First());
 
-            Console.ReadLine();
-            Console.Clear();
+            //Console.ReadLine();
+            //Console.Clear();
 
 
             Random rand = new Random(DateTime.Now.ToString().GetHashCode());
 
             int RyhmäKoko;
 
-            Console.WriteLine("Anna ryhmäkoko");
+
+           
+                
+
+            string s1 = DateTime.Now.ToString("D");
+
+
+            Console.WriteLine(Tekstit.Anna + " " + Tekstit.ryhmäkoko);
             string input = Console.ReadLine();
             Int32.TryParse(input, out RyhmäKoko);
 
@@ -119,7 +135,9 @@ namespace Konsulttitoikea
 
             Random rnd = new Random();
 
+            
 
+            Console.WriteLine(s1);
 
 
             for (int i = 0; i < RyhmienLkm; i++)
