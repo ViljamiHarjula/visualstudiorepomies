@@ -155,7 +155,7 @@ namespace Konsulttitoikea
 
 
             Console.ReadLine();
-            // testi bjj
+            // testi bjj khhj
         }
     }
 
